@@ -1,13 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Task() {
+function Task(props){
+  const [isCompleted, setIsCompleted] = useState(false);
+  const {text, category} = props;
+
+  function handleCheckBocClick(){
+    setIsCompleted(!isCompleted);
+  };
+
+  function handleDeleteClick(){
+    props.deleteTask(props.id);
+  };
+
+
   return (
-    <div className="task">
-      <div className="label">CATEGORY HERE</div>
-      <div className="text">TEXT HERE</div>
-      <button className="delete">X</button>
+    <div className={isCompleted ? "task completed" : "task"}>
+      <div className="label">{category}</div>
+      <div className="text">{text}</div>
+      <input type="checkbox" checked={isCompleted} onChange={handleCheckboxClick} />
+      <button className="delete" onClick={handleDeleteClick}>
+        X
+      </button>
     </div>
   );
 }
 
 export default Task;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
