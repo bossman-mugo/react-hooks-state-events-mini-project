@@ -4,7 +4,7 @@ function Task(props){
   const [isCompleted, setIsCompleted] = useState(false);
   const {text, category} = props;
 
-  function handleCheckBocClick(){
+  function handleCheckBoxClick(){
     setIsCompleted(!isCompleted);
   };
 
@@ -17,7 +17,7 @@ function Task(props){
     <div className={isCompleted ? "task completed" : "task"}>
       <div className="label">{category}</div>
       <div className="text">{text}</div>
-      <input type="checkbox" checked={isCompleted} onChange={handleCheckboxClick} />
+      <input type="checkbox" checked={isCompleted} onChange={handleCheckBoxClick} />
       <button className="delete" onClick={handleDeleteClick}>
         X
       </button>
